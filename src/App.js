@@ -1,12 +1,8 @@
 import { Typography } from '@material-ui/core'
 import Booklist from './components/Booklist'
 
-
 function App() {
-  const books = [
-    { name: "Homer"},
-    { name: "South Park"}
-  ]
+  const books = [{ name: 'Homer' }, { name: 'South Park' }]
   return (
     <div className="App">
       <Typography
@@ -18,7 +14,6 @@ function App() {
       </Typography>
 
       <Booklist books={books} />
-
     </div>
   )
 }
