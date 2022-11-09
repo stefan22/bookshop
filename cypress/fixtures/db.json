@@ -1,0 +1,14 @@
+{
+  "books": [
+    { "name": "Homer",
+      "id": 1
+    },
+    { "name": "Eric Cartman",
+      "id": 2
+    },
+    {
+      "name": "Kenny",
+      id: 3
+    }
+  ]
+}
