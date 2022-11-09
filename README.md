@@ -3,6 +3,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
+:coffee: NPMJS <kbd>URL:</kbd>  <a href="https://www.npmjs.
+com/package/eslint-config-slco" title="ESLint-config-slco" 
+target="_blank">ESLint-config-slco</a>
+
+<br />
+
 ## Feature 1 - Booklist
 
 ```
