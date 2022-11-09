@@ -1,11 +1,22 @@
-const Booklist = ({ books }) => (
-  <div data-test="book-list">
-    {books.map(book => (
-      <div className="book-item">
-        <h2 className="title">{book.name}</h2>
-      </div>
-    ))}
-  </div>
-)
+const Booklist = ({ books, loading, error }) => {
+  if (error) return <p>`Error: ${error}`</p>
+
+  return (
+    <div data-test="book-list">
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        books?.map(book => (
+          <div
+            key={book.id}
+            className="book-item"
+          >
+            <h2 className="title">{book.name}</h2>
+          </div>
+        ))
+      )}
+    </div>
+  )
+}
 
 export default Booklist
