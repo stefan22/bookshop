@@ -10,10 +10,10 @@ module.exports = defineConfig({
 
     env: {
       development: process.env.REACT_APP_DEV,
-      booksApi: process.env.REACT_APP_BASE_API, //..8080/books
+      booksApi: process.env.REACT_APP_BASE_API, // ..8080/books
     },
     pageLoadTimeout: process.env.REACT_APP_PAGE_LOAD_TIMEOUT,
     watchForFileChanges: false,
-    fileServerFolder: process.env.REACT_APP_SERVER_FOLDER,//stubServer
+    fileServerFolder: process.env.REACT_APP_SERVER_FOLDER, // stubServer
   },
 })

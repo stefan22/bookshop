@@ -9,12 +9,12 @@ const path = jsonServer.router(path.join(__dirname, 'db.json'))
 server.use(jsonServer.bodyParser)
 
 server.use((req, res, next) => {
-  //delete w/_cleanup query resets arr length zero.
+  // delete w/_cleanup query resets arr length zero.
   if (req.method === 'DELETE' && req.query._cleanup) {
     const { db } = router
-    //clear db
+    // clear db
     db.set('books', []).write()
-    //rq success w/nothing
+    // rq success w/nothing
     res.sendStatus(204)
   } else {
     next()

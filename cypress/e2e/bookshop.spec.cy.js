@@ -2,33 +2,31 @@ import axios from 'axios'
 
 describe('Bookshop', () => {
   before(() => {
-    axios.delete('http://localhost:8080/books?_cleanup=true')
-    .catch((err) => err)
+    axios
+      .delete('http://localhost:8080/books?_cleanup=true')
+      .catch(err => err)
   })
 
   afterEach(() => {
-    axios.delete('http://localhost:8080/books?_cleanup=true')
-    .catch((err) => err)
+    axios
+      .delete('http://localhost:8080/books?_cleanup=true')
+      .catch(err => err)
   })
 
   beforeEach(() => {
     const books = [
-      { "name": "Homer",
-        "id": 1
-      },
-      { "name": "Eric Cartman",
-        "id": 2
-      },
+      { name: 'Homer', id: 1 },
+      { name: 'Eric Cartman', id: 2 },
       {
-        "name": "Kenny",
-        id: 3
-      }
+        name: 'Kenny',
+        id: 3,
+      },
     ]
     return books.map(itm =>
       axios.post('http://localhost:8080/books', itm, {
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       })
     )
   })
@@ -52,8 +50,7 @@ describe('Bookshop', () => {
         bk => bk.querySelector('h2').innerHTML
       )
       console.log(titles)
-      expect(titles).to.deep.equal(['Homer', 'Eric Cartman','Kenny'])
+      expect(titles).to.deep.equal(['Homer', 'Eric Cartman', 'Kenny'])
     })
   })
-
 })
