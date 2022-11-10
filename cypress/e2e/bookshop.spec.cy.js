@@ -1,35 +1,35 @@
-import axios from 'axios'
+// import axios from 'axios'
 
 describe('Bookshop', () => {
-  before(() => {
-    axios
-      .delete('http://localhost:8080/books?_cleanup=true')
-      .catch(err => err)
-  })
+  //before(() => {
+  //   axios
+  //     .delete('http://localhost:8080/books?_cleanup=true')
+  //     .catch(err => err)
+  // })
 
-  afterEach(() => {
-    axios
-      .delete('http://localhost:8080/books?_cleanup=true')
-      .catch(err => err)
-  })
+  // afterEach(() => {
+  //   axios
+  //     .delete('http://localhost:8080/books?_cleanup=true')
+  //     .catch(err => err)
+  // })
 
-  beforeEach(() => {
-    const books = [
-      { name: 'Homer', id: 1 },
-      { name: 'Eric Cartman', id: 2 },
-      {
-        name: 'Kenny',
-        id: 3,
-      },
-    ]
-    return books.map(itm =>
-      axios.post('http://localhost:8080/books', itm, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-    )
-  })
+  // beforeEach(() => {
+  //   const books = [
+  //     { name: 'Homer', id: 1 },
+  //     { name: 'Eric Cartman', id: 2 },
+  //     {
+  //       name: 'Kenny',
+  //       id: 3,
+  //     },
+  //   ]
+  //   return books.map(itm =>
+  //     axios.post('http://localhost:8080/books', itm, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //     })
+  //   )
+  // })
 
   it('Bookshop landing', () => {
     cy.visit('http://localhost:3000/')

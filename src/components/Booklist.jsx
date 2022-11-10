@@ -1,5 +1,7 @@
+import React from 'react'
+
 const Booklist = ({ books, loading, error }) => {
-  if (error) return <p>`Error: ${error}`</p>
+  if (error) return <p>{error}</p>
 
   return (
     <div data-test="book-list">
