@@ -1,9 +1,12 @@
 import { Typography } from '@material-ui/core'
-import BooklistContainer from './layout/BooklistContainer'
+import BooklistContainer from './layout/BooklistContainer.js'
 
 function App() {
   return (
-    <div className="App">
+    <div
+      data-testid="app-container"
+      className="App"
+    >
       <Typography
         variant="h2"
         component="h2"

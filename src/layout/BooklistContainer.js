@@ -1,6 +1,6 @@
 import React from 'react'
-import Booklist from '../components/Booklist'
-import { useFetchData } from '../lib/useFetchData'
+import Booklist from '../components/Booklist.jsx'
+import { useFetchData } from '../lib/useFetchData.js'
 
 const BooklistContainer = () => {
   const { data, loading, error } = useFetchData([])

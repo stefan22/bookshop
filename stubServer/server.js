@@ -4,12 +4,9 @@ const server = jsonServer.create()
 const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
-const path = jsonServer.router(path.join(__dirname, 'db.json'))
-
-server.use(jsonServer.bodyParser)
-
 server.use((req, res, next) => {
   // delete w/_cleanup query resets arr length zero.
+  console.log('req is ', req)
   if (req.method === 'DELETE' && req.query._cleanup) {
     const { db } = router
     // clear db

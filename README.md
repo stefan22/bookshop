@@ -2,7 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-
 ## Feature 1 - Booklist
 
 ```
@@ -47,7 +46,6 @@ Acceptance criteria:
  Only books with 'homer' in their name are displayed in the book list
 ```
 
-
 ## Feature 4 - Reviews
 
 ```
@@ -63,29 +61,27 @@ Acceptance criteria:
  A user can edit the review he/she has posted
 ```
 
-
-
 <br />
 
 <hr />
 
-
 <br />
-
-
-
-
-
-
-
-
-
 
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
+
+```
+ npm start // react
+ npm run stubServer // json-server
+ npm test // jest
+ npm run cypress:open  // cypress
+ npm run cypress:run // cypress headless
+ npm run lint // eslint-prettier
+ npm run lint:fix //eslint-prettier (with eslint-config-slco)
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
