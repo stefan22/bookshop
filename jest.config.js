@@ -1,3 +1,5 @@
+//jest >=28 ===jsdom - atm jest config also w/slco eslint-config package in npm registry
+
 module.exports = {
   verbose: true,
   testEnvironment: 'jsdom',
