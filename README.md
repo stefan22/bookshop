@@ -18,10 +18,10 @@ target="_blank">ESLint-config-slco</a>
 Acceptance criteria:
 
 ```
- Given there are 10 books in the library
+ Given there are 3 books in the library
  When a user visits the homepage
- Then he/she would see 10 books on the page
- And each book should contain at least book 'name','author','price' and 'rating'
+ Then he/she would see 3 books on the page
+ And each book should contain at least book 'name' and 'id'
 ```
 
 ##### Feature <kbd>2</kbd> - Book details
@@ -35,7 +35,7 @@ Acceptance criteria:
 
 ```
  User clicks an item in the booklist and is redirected to the details page
- The details page display the book name, author, price, description and any reviews
+ The details page display the book name, and id
 ```
 
 ##### Feature <kbd>3</kbd> - Searching

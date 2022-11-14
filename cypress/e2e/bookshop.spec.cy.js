@@ -22,19 +22,20 @@ describe('Bookshop', () => {
     )
   })
 
-  xit('Bookshop landing', () => {
+  it('Bookshop landing', () => {
     cy.visit('http://localhost:3000/')
     cy.get('[data-testid="heading"]').contains('Bookshop')
   })
 
-  xit('shows a booklist', () => {
+  it('shows a booklist', () => {
     cy.visit('http://localhost:3000/')
     cy.wait(2000)
     cy.get('[data-testid="book-list"]').should('exist')
     cy.get('div.book-item').should('have.length', 3)
   })
 
-  xit('should have all 3 book titles', () => {
+
+  it('should have all 3 book titles', () => {
     cy.visit('http://localhost:3000/')
     cy.wait(4000)
     cy.get('div.book-item').should(books => {
@@ -81,7 +82,7 @@ describe('Book details page', () => {
     )
   })
 
-  xit('routes user to book details page', () => {
+  it('routes user to book details page', () => {
     cy.visit('http://localhost:3000/')
     cy.get('[data-testid="book-item"]')
       .contains('View details')
