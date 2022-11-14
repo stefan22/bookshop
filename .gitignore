@@ -127,3 +127,4 @@ xassets/
 debug/
 baggett/
 cypress/videos/
+test.rest

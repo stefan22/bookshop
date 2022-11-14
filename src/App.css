@@ -118,3 +118,11 @@ nav a {
     transform: rotate(115deg);
   }
 }
+
+.home-wrapper > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+}

@@ -1,26 +1,26 @@
-import axios from 'axios'
+// import axios from 'axios'
 
 describe('Bookshop', () => {
-  afterEach(() => {
-    axios
-      .delete('http://localhost:8080/books?_cleanup=true')
-      .catch(err => err)
-  })
-
-  beforeEach(() => {
-    const books = [
-      { name: 'The Streaming Wars' },
-      { name: 'Tokens Life Matters' },
-      { name: 'Shelley Secret Baby' },
-    ]
-    return books.map(itm =>
-      axios.post('http://localhost:8080/books', itm, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-    )
-  })
+  // afterEach(() => {
+  //   axios
+  //     .delete('http://localhost:8080/books?_cleanup=true')
+  //     .catch(err => err)
+  // })
+  //
+  // beforeEach(() => {
+  //   const books = [
+  //     { name: 'The Streaming Wars' },
+  //     { name: 'Tokens Life Matters' },
+  //     { name: 'Shelley Secret Baby' },
+  //   ]
+  //   return books.map(itm =>
+  //     axios.post('http://localhost:8080/books', itm, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //     })
+  //   )
+  // })
 
   it('Bookshop landing', () => {
     cy.visit('http://localhost:3000/')
@@ -45,42 +45,14 @@ describe('Bookshop', () => {
       )
       expect(titles).to.deep.equal([
         'The Streaming Wars',
-        'Tokens Life Matters',
-        'Shelley Secret Baby',
+        "Token's Life Matters",
+        "Shelley's Secret Baby",
       ])
     })
   })
 })
 
 describe('Book details page', () => {
-  before(() => {
-    axios
-      .delete('http://localhost:8080/books?_cleanup=true')
-      .catch(err => err)
-  })
-
-  afterEach(() => {
-    axios
-      .delete('http://localhost:8080/books?_cleanup=true')
-      .catch(err => err)
-  })
-
-  beforeEach(() => {
-    const books = [
-      { name: 'The Streaming Wars' },
-      { name: 'Tokens Life Matters' },
-      { name: 'Shelley Secret Baby' },
-    ]
-
-    return books.map(itm =>
-      axios.post('http://localhost:8080/books', itm, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-    )
-  })
-
   it('routes user to book details page', () => {
     cy.visit('http://localhost:3000/')
     cy.get('[data-testid="book-item"]')

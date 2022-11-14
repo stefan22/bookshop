@@ -1,7 +1,22 @@
 {
-  "books": [
-    { "name": "The Streaming Wars","author": "Eric Cartman" },
-    { "name":"Token's Life Matters",  "author": "Kenny McCormick"},
-    {  "name":"Shelley's Secret Baby",  "author": "Shelley Marsh"}
+  "books":[
+    {
+      "name":"The Streaming Wars",
+      "description":"Cartman locks horns with his mum in a battle of wills while an epic conflict unfolds and threatens South Park's very existence.",
+      "author":"Eric Cartman",
+      "id":1
+    },
+    {
+      "name":"Token's Life Matters",
+      "description":"The boys' discovery of a prehistoric relic allows Barbara Streisand to transform into a monster that threatens to destroy South Park and the world.",
+      "author":"Kenny McCormick",
+      "id":2
+    },
+    {
+      "name":"Shelley's Secret Baby",
+      "description":"South Park citizens declare a \"Conjoined Twin Myslexia Awareness Week\" to help the school nurse. The school's dodgeball team goes to the championships with Pip as their star player.",
+      "author":"Shelley Marsh",
+      "id":3
+    }
   ]
 }

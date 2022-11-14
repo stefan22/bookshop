@@ -4,7 +4,6 @@
  */
 import React from 'react'
 import { render } from '@testing-library/react'
-
 import Booklist from '../components/Booklist'
 
 describe('Test environment', () => {
@@ -30,8 +29,10 @@ describe('Loading state', () => {
     const content = container.querySelector('p')
     expect(content.innerHTML).toContain('Error')
   })
+})
 
-  it('renders books on page', () => {
+describe('Renders books', () => {
+  it('shows books list', () => {
     const props = {
       books: [
         { name: 'Homer', id: 1 },
@@ -44,7 +45,6 @@ describe('Loading state', () => {
     const titles = [...container.querySelectorAll('h2')].map(
       bk => bk.innerHTML
     )
-    // console.log(titles)
     expect(titles.length).toBe(4)
     expect(titles[0]).toEqual('Homer')
     expect(titles[2]).toEqual('Lisa')
