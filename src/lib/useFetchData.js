@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const initialState = []
+const url = 'http://localhost:8080/books'
 
 export const useFetchData = () => {
   const [data, setData] = useState(initialState)
@@ -11,7 +12,7 @@ export const useFetchData = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const res = await axios.get(`http://localhost:8080/books`)
+        const res = await axios.get(url)
         setLoading(false)
         return setData(res.data)
       } catch (err) {
