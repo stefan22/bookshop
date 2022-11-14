@@ -112,12 +112,12 @@ for how-to-install.
 
 ##### Jest/Cypress config files
 
-Add Cypress/Jest config. 
+##### Add Cypress/Jest config
 - Cypress bookshop.spec.cy.js [ok]
 - Jest Booklist.test.js [ok]
 
 
 <br />
 
-<hr />
+
 :100:

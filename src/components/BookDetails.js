@@ -10,7 +10,18 @@ const BookDetails = ({ book, loading, error }) => {
       key={book.id}
       data-testid="book-details"
     >
-      <h2 className="title">{book.name}</h2>
+      <h2
+        data-testid="book-name"
+        className="title"
+      >
+        {book.name}
+      </h2>
+      <p
+        data-testid="book-description"
+        className="book-description"
+      >
+        {book.description}
+      </p>
     </div>
   )
 }
