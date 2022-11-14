@@ -34,6 +34,7 @@ describe('Bookshop', () => {
     cy.get('div.book-item').should('have.length', 3)
   })
 
+
   it('should have all 3 book titles', () => {
     cy.visit('http://localhost:3000/')
     cy.wait(4000)
