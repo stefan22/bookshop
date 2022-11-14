@@ -1,7 +1,7 @@
 {
   "books": [
-    { name: 'Cartman' },
-    { name: 'Kenny' },
-    { name: 'Lisa' }
+    { "name": "The Streaming Wars","author": "Eric Cartman" },
+    { "name":"Token's Life Matters",  "author": "Kenny McCormick"},
+    {  "name":"Shelley's Secret Baby",  "author": "Shelley Marsh"}
   ]
 }

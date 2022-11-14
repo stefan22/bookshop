@@ -1,3 +1,7 @@
 {
-  "books": []
+  "books": [
+    { "name": "The Streaming Wars", "id": 1 },
+    { "name": "Tokens Life Matters", "id": 2 },
+    { "name": "Shelley Secret Baby", "id": 3 }
+  ]
 }
