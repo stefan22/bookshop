@@ -7,8 +7,8 @@ const middlewares = jsonServer.defaults()
 
 server.use((req, res, next) => {
   // resets books to an empty array
-  if (req.method === 'DELETE' && req.query['_cleanup']) {
-    const db = router.db;
+  if (req.method === 'DELETE' && req.query._cleanup) {
+    const { db } = router
     db.set('books', []).write()
     res.sendStatus(204) // no content success
   } else {

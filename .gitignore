@@ -125,4 +125,5 @@ xassets/
 .env.test.local
 .env.production.local
 debug/
-
+baggett/
+cypress/videos/

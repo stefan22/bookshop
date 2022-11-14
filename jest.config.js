@@ -1,7 +1,8 @@
 module.exports = {
-  verbose: true,
-  testEnvironment: 'jsdom',
-  roots: ['<rootDir>/src'],
-  moduleFileExtensions: ['jsx', 'js'],
+  moduleFileExtensions: ['js', 'jsx'],
+  modulePathIgnorePatterns: ['baggett/', '<rootDir>/node_modules/'],
+  moduleNameMapper: {
+    '\\.(css|less)$': '<rootDir>/src/app.css',
+  },
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
 }

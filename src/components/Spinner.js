@@ -1,8 +1,7 @@
-import React from "react";
-import styles from "../styles.css";
+import React from 'react'
 
-const Spinner = () => {
-  return <div className="spinwrap">Loading</div>;
-};
+const Spinner = ({ loading }) => (
+  <div className="spinwrap">{loading}</div>
+)
 
-export default Spinner;
+export default Spinner
