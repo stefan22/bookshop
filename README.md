@@ -2,13 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-:coffee: NPMJS <kbd>URL:</kbd>  <a href="https://www.npmjs.
-com/package/eslint-config-slco" title="ESLint-config-slco"
-target="_blank">ESLint-config-slco</a>
+:coffee: NPMJS <kbd>URL:</kbd>  <a href="https://www.npmjs.com/package/eslint-config-slco" title="ESLint-config-slco" target="_blank">ESLint-config-slco</a>
 
 <br />
 
+
 ##### Feature <kbd>1</kbd> - Booklist
+
 
 ```
  As a user I want to see a list of of books 
@@ -112,9 +112,10 @@ for how-to-install.
 
 ##### Jest/Cypress config files
 
-Add Cypress/Jest config. 
-- Cypress bookshop.spec.cy.js [ok]
-- Jest Booklist.test.js [ok]
+Add Cypress/Jest config.        
+
+- Cypress: `bookshop.spec.cy.js` [ok]              
+- Jest:    `Booklist.test.js`    [ok]         
 
 
 <br />
