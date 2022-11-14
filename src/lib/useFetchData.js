@@ -2,16 +2,21 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const initialState = []
+const baseUrl = 'http://localhost:8080'
 
-export const useFetchData = () => {
+export const useFetchData = (id = '') => {
   const [data, setData] = useState(initialState)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
   useEffect(() => {
     const fetchBooks = async () => {
+      const isUrl =
+        id.indexOf('books') === -1
+          ? `${baseUrl}/books`
+          : `${baseUrl}${id}`
       try {
-        const res = await axios.get(`http://localhost:8080/books`)
+        const res = await axios.get(isUrl)
         setLoading(false)
         return setData(res.data)
       } catch (err) {
@@ -20,7 +25,7 @@ export const useFetchData = () => {
       }
     }
     fetchBooks()
-  }, [])
+  }, [id])
 
   return { data, loading, error }
 }

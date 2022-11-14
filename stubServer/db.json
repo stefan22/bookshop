@@ -1,3 +1,7 @@
 {
-  "books": []
+  "books": [
+    { "name": "The Streaming Wars","author": "Eric Cartman","id": 1 },
+    { "name":"Token's Life Matters",  "author": "Kenny McCormick", "id": 2},
+    {  "name":"Shelley's Secret Baby",  "author": "Shelley Marsh", "id": 3}
+  ]
 }
