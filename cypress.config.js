@@ -11,6 +11,7 @@ module.exports = defineConfig({
     pageLoadTimeout: process.env.REACT_APP_PAGE_LOAD_TIMEOUT,
     watchForFileChanges: false,
 
+    defaultCommandTimeout: 8000,
     fileServerFolder: process.env.REACT_APP_SERVER_FOLDER, // stubServer
     setupNodeEvents(on, config) {
       // node evts

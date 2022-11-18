@@ -1,9 +1,9 @@
 import React from 'react'
 import BookDetails from '../components/BookDetails'
-import { useFetchData } from '../lib/useFetchData.js'
+import { useFetchBookData } from '../lib/useFetchBookData.js'
 
 const BookDetailsContainer = ({ id }) => {
-  const { data, loading, error } = useFetchData(id)
+  const { data, loading, error } = useFetchBookData(id)
 
   return (
     <BookDetails
