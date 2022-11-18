@@ -20,7 +20,7 @@ const BookDetails = ({ book, loading, error }) => {
         data-testid="book-description"
         className="book-description"
       >
-        {book.description}
+        {book.description ? book.description : book.name}
       </p>
     </div>
   )
