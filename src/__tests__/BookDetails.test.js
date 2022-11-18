@@ -39,4 +39,18 @@ describe('Book details', () => {
     )
     expect(description.innerHTML).toEqual(props.book.description)
   })
+
+  it('displays the book name when no description is given', () => {
+    const nodesc = {
+      book: {
+        name: 'The Streaming Wars',
+      },
+    }
+    const { container } = render(<BookDetails {...nodesc} />)
+    const description = container.querySelector(
+      '[data-testid="book-description"]'
+    )
+    expect(description.textContent).toEqual(nodesc.book.name)
+  })
+
 })

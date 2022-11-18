@@ -4,7 +4,7 @@ import axios from 'axios'
 const initialState = []
 const baseUrl = 'http://localhost:8080'
 
-export const useFetchData = (id = '') => {
+export const useFetchBookData = (id = '') => {
   const [data, setData] = useState(initialState)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -12,7 +12,7 @@ export const useFetchData = (id = '') => {
   useEffect(() => {
     const fetchBooks = async () => {
       const isUrl =
-        id.indexOf('books') === -1
+        (await id.indexOf('books')) === -1
           ? `${baseUrl}/books`
           : `${baseUrl}${id}`
       try {

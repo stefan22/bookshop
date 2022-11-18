@@ -88,8 +88,7 @@ Acceptance criteria:
 CD to stubServer and type
 
  ```text
- npm install
- node server.js
+ npm install && npm start
 ```
 
 ##### _Jest & Cypress_

@@ -21,6 +21,12 @@ const useStyles = makeStyles(theme => ({
   title: {
     marginBottom: '1rem',
   },
+  card: {
+    border: '1px solid lightgray',
+  },
+  description: {
+    height: '40px',
+  },
 }))
 
 const Booklist = ({ books, loading, error }) => {
@@ -50,7 +56,8 @@ const Booklist = ({ books, loading, error }) => {
             data-testid="book-item"
             className="book-item"
           >
-            <Card>
+          
+            <Card className={classes.card}>
               <CardContent>
                 <Typography
                   gutterBottom
@@ -59,6 +66,15 @@ const Booklist = ({ books, loading, error }) => {
                   className={classes.title}
                 >
                   {book.name}
+                </Typography>
+
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  className={classes.description}
+                >
+                  {book.intro}
                 </Typography>
 
                 <Button
