@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
-
     color: theme.palette.text.secondary,
   },
   title: {
@@ -57,6 +56,7 @@ const Booklist = ({ books, loading, error }) => {
             data-testid="book-item"
             className="book-item"
           >
+          
             <Card className={classes.card}>
               <CardContent>
                 <Typography

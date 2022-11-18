@@ -50,7 +50,7 @@ describe('Book details', () => {
     const description = container.querySelector(
       '[data-testid="book-description"]'
     )
-
     expect(description.textContent).toEqual(nodesc.book.name)
   })
+
 })
