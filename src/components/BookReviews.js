@@ -1,10 +1,17 @@
 import React from 'react'
 
-const BookReviews = () => (
-  <>
-    <h2>Book reviews</h2>
-    <div data-testid="reviews-container" />
-  </>
+const BookReviews = ({ id, name, date, content }) => (
+  <div
+    key={id}
+    data-testid="reviews__item"
+  >
+    <h3>{content}</h3>
+    <div className="reviews__footer">
+      <span>Posted by: {name}</span>
+      &nbsp; | &nbsp;
+      <span> Date: {date}</span>
+    </div>
+  </div>
 )
 
 export default BookReviews
