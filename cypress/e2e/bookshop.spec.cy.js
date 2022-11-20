@@ -63,3 +63,10 @@ describe('Book details page', () => {
     cy.url().should('include', '/books/1')
   })
 })
+
+describe('Searching by book name', () => {
+  cy.visit('http://localhost:3000/')
+  cy.get('[data-testid="search"]').type('Wars')
+  cy.get('[data-testid="book-item"]').should('have.length', 1)
+  cy.get('div.book-item').eq(0).contains('The Streaming Wars')
+})
