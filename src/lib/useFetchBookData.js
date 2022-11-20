@@ -1,31 +1,32 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { handleBooks } from '../helpers/handleBooks'
+import { BASE_URL } from '../helpers/baseUrl'
 
 const initialState = []
-const baseUrl = 'http://localhost:8080'
+const initialSearch = `${BASE_URL}/books?q=`
 
 export const useFetchBookData = (id = '') => {
   const [data, setData] = useState(initialState)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+  const [search, searchUrl] = useState(initialSearch)
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const isUrl =
-        (await id.indexOf('books')) === -1
-          ? `${baseUrl}/books`
-          : `${baseUrl}${id}`
-      try {
-        const res = await axios.get(isUrl)
-        setLoading(false)
-        return setData(res.data)
-      } catch (err) {
-        return () =>
-          setError(true, () => console.log(`error: ${err.message}`))
+      // book search
+      if (search !== initialSearch) {
+        return handleBooks(search, setData, setLoading, setError)
       }
+      // all books or book details pg
+      const isUrl =
+        id.indexOf('books') === 1
+          ? `${BASE_URL}${id}`
+          : `${BASE_URL}/books`
+
+      handleBooks(isUrl, setData, setLoading, setError)
     }
     fetchBooks()
-  }, [id])
+  }, [id, search])
 
-  return { data, loading, error }
+  return { data, loading, error, searchUrl }
 }
