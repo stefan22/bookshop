@@ -5,11 +5,12 @@ import { BASE_URL } from '../helpers/baseUrl'
 const initialState = []
 const initialSearch = `${BASE_URL}/books?q=`
 
-export const useFetchBookData = (id = '') => {
+export const useFetchBookData = () => {
   const [data, setData] = useState(initialState)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [search, searchUrl] = useState(initialSearch)
+  const [id, setId] = useState('')
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -28,5 +29,5 @@ export const useFetchBookData = (id = '') => {
     fetchBooks()
   }, [id, search])
 
-  return { data, loading, error, searchUrl }
+  return { data, loading, error, searchUrl, setId }
 }

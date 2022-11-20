@@ -1,41 +1,32 @@
-// import axios from 'axios'
+import {
+  removeBooks,
+  addBooks,
+  gotoApp,
+} from '../../src/helpers/tests'
 
 describe('Bookshop', () => {
-  // afterEach(() => {
-  //   axios
-  //     .delete('http://localhost:8080/books?_cleanup=true')
-  //     .catch(err => err)
-  // })
-  //
-  // beforeEach(() => {
-  //   const books = [
-  //     { name: 'The Streaming Wars' },
-  //     { name: 'Tokens Life Matters' },
-  //     { name: 'Shelley Secret Baby' },
-  //   ]
-  //   return books.map(itm =>
-  //     axios.post('http://localhost:8080/books', itm, {
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //     })
-  //   )
-  // })
+  afterEach(() => {
+    removeBooks()
+  })
+
+  beforeEach(() => {
+    addBooks()
+  })
 
   it('Bookshop landing', () => {
-    cy.visit('http://localhost:3000/')
+    gotoApp()
     cy.get('[data-testid="heading"]').contains('Bookshop')
   })
 
   it('shows a booklist', () => {
-    cy.visit('http://localhost:3000/')
+    gotoApp()
     cy.wait(2000)
     cy.get('[data-testid="book-list"]').should('exist')
     cy.get('div.book-item').should('have.length', 3)
   })
 
   it('should have all 3 book titles', () => {
-    cy.visit('http://localhost:3000/')
+    gotoApp()
     cy.wait(4000)
     cy.get('div.book-item').should(books => {
       expect(books).to.have.length(3)
@@ -54,7 +45,7 @@ describe('Bookshop', () => {
 
 describe('Book details page', () => {
   it('routes user to book details page', () => {
-    cy.visit('http://localhost:3000/')
+    gotoApp()
     cy.get('[data-testid="book-item"]')
       .contains('View details')
       .eq(0)
@@ -65,7 +56,7 @@ describe('Book details page', () => {
 })
 
 describe('Searching by book name', () => {
-  cy.visit('http://localhost:3000/')
+  gotoApp()
   cy.get('[data-testid="search"]').type('Wars')
   cy.get('[data-testid="book-item"]').should('have.length', 1)
   cy.get('div.book-item').eq(0).contains('The Streaming Wars')
