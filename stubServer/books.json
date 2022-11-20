@@ -5,21 +5,69 @@
       "description": "Cartman locks horns with his mum in a battle of wills while an epic conflict unfolds and threatens South Park's very existence.",
       "intro": "Cartman locks horns with ...",
       "author": "Eric Cartman",
-      "id": 1
+      "id": 1,
+      "reviews": [
+        {
+          "name": "Mike",
+          "date": "2022/07/30",
+          "content": "It was alright",
+          "id": "e0730wars"
+        },
+        {
+          "name": "Sarah",
+          "date": "2022/07/02",
+          "content": "I liked it",
+          "id": "h0702wars"
+        }
+      ]
     },
     {
       "name": "Token's Life Matters",
       "description": "The boys discovery of a prehistoric relic allows Barbara Streisand to transform into a monster that threatens to destroy South Park and the world.",
       "intro": "The boys discovery of a ...",
       "author": "Kenny McCormick",
-      "id": 2
+      "id": 2,
+      "reviews": [
+        {
+          "name": "Antony",
+          "date": "2022/07/19",
+          "content": "Awesome book",
+          "id": "y0719matters"
+        },
+        {
+          "name": "Jessica",
+          "date": "2022/02/11",
+          "content": "Simply amazing",
+          "id": "a0211matters"
+        },
+        {
+          "name": "Rob",
+          "date": "2022/04/25",
+          "content": "A must read!",
+          "id": "b0425matters"
+        }
+      ]
     },
     {
       "name": "Shelley's Secret Baby",
       "description": "South Park citizens declare a \"Conjoined Twin Myslexia Awareness Week\" to help the school nurse. The school's dodgeball team goes to the championships with Pip as their star player.",
       "intro": "South Park citizens declare ...",
       "author": "Shelley Marsh",
-      "id": 3
+      "id": 3,
+      "reviews": [
+        {
+          "name": "Mario",
+          "date": "2022/07/18",
+          "content": "Not convinced",
+          "id": "o0718baby"
+        },
+        {
+          "name": "Vanessa",
+          "date": "2022/07/12",
+          "content": "A bit too long",
+          "id": "a0712baby"
+        }
+      ]
     }
   ]
 }
