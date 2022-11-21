@@ -2,7 +2,7 @@
   "books": [
     {
       "name": "The Streaming Wars",
-      "description": "Cartman locks horns with his mum in a battle of wills while an epic conflict unfolds and threatens South Park's very existence.",
+      "description": "Cartman locks horns with his mum in a battle of wills while an epic conflict unfolds and threatens South Park's very existence. Amidst the streaming wars, the drought in South Park has significantly worsened. In court, Eric Cartman sues his mother Liane, forcing Stan Marsh, Butters Stotch and Kyle Broflovski to testify about how Cartman used the money they earned to pay for his breast implants; the case is ultimately dismissed. ",
       "intro": "Cartman locks horns with ...",
       "author": "Eric Cartman",
       "id": 1,
@@ -23,8 +23,8 @@
     },
     {
       "name": "Token's Life Matters",
-      "description": "The boys discovery of a prehistoric relic allows Barbara Streisand to transform into a monster that threatens to destroy South Park and the world.",
-      "intro": "The boys discovery of a ...",
+      "description": "Cartman tricks Token into moving close enough to shoot in accordance with the 'stand-your-ground-law'. At school, Cartman is sent to Mackey's office along with a bandaged Token. When Mackey demands that the two apologize to each other in order to resolve their feud. Once more, Cartman panics, flees, and causes yet another plane to crash.",
+      "intro": "Eric Cartman draws attention by acting ...",
       "author": "Kenny McCormick",
       "id": 2,
       "reviews": [
@@ -50,7 +50,7 @@
     },
     {
       "name": "Shelley's Secret Baby",
-      "description": "South Park citizens declare a \"Conjoined Twin Myslexia Awareness Week\" to help the school nurse. The school's dodgeball team goes to the championships with Pip as their star player.",
+      "description": "South Park citizens declare a Conjoined Twin Myslexia Awareness Week to help the school nurse. The school's dodgeball team goes to the championships with Pip as their star player.",
       "intro": "South Park citizens declare ...",
       "author": "Shelley Marsh",
       "id": 3,

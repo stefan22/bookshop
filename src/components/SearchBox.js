@@ -1,19 +1,17 @@
 import React from 'react'
-import { Container, TextField } from '@material-ui/core'
 
 const SearchBox = ({ term, setTerm }) => (
-  <Container maxWidth="sm">
-    <TextField
-      label="Search"
-      value={term}
-      data-testid="search"
-      onChange={e => setTerm(e.target.value)}
-      margin="normal"
-      variant="outlined"
-      type="text"
-      size="medium"
-      placeholder="Search"
-    />
-  </Container>
+  <div>
+    <label htmlFor="search">Search by:<br />
+      <input
+        value={term}
+        id="search"
+        data-testid="search"
+        onChange={e => setTerm(e.target.value)}
+        type="text"
+        placeholder="book name"
+      />
+    </label>
+  </div>
 )
 export default SearchBox

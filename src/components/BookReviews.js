@@ -3,7 +3,7 @@ import React from 'react'
 const BookReviews = ({ id, name, date, content }) => (
   <div
     key={id}
-    data-testid="reviews__item"
+    data-testid="review-item"
   >
     <h3>{content}</h3>
     <div className="reviews__footer">

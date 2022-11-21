@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink, Routes, Route } from 'react-router-dom'
-import { Typography } from '@material-ui/core'
 import Books from './pages/Books'
 import Home from './pages/Home'
 
@@ -13,18 +12,10 @@ function App() {
       className="App"
     >
       <header>
-        <Typography
-          variant="h2"
-          component="h2"
-          data-testid="heading"
-        >
-          Bookshop
-        </Typography>
+        <h2 data-testid="heading">Bookshop</h2>
       </header>
       <nav>
         <NavLink to="/">Home</NavLink>
-
-        <NavLink to="/books">Books</NavLink>
       </nav>
 
       <Routes>

@@ -1,19 +1,12 @@
 /*
  * @jest-environment jsdom
- * @jest-environment-options {"url": "https://jestjs.io/"}
  */
 import React from 'react'
 import { render } from '@testing-library/react'
 import BookDetails from '../components/BookDetails'
 
-describe('Test environment', () => {
-  test('use jsdom and set the URL in this test file', () => {
-    expect(window.location.href).toBe('https://jestjs.io/')
-  })
-})
-
-describe('Book details', () => {
-  it('displays book name', () => {
+describe('Book details pg', () => {
+  it('shows the correct book name', () => {
     const props = {
       book: {
         name: 'The Streaming Wars',
@@ -24,7 +17,7 @@ describe('Book details', () => {
     expect(title.innerHTML).toEqual(props.book.name)
   })
 
-  it('renders book description', () => {
+  it('shows the correct book description', () => {
     const props = {
       book: {
         name: 'The Streaming Wars',
@@ -40,7 +33,7 @@ describe('Book details', () => {
     expect(description.innerHTML).toEqual(props.book.description)
   })
 
-  it('displays the book name when no description is given', () => {
+  it('renders book name when no description available', () => {
     const nodesc = {
       book: {
         name: 'The Streaming Wars',
@@ -50,7 +43,6 @@ describe('Book details', () => {
     const description = container.querySelector(
       '[data-testid="book-description"]'
     )
-
     expect(description.textContent).toEqual(nodesc.book.name)
   })
 })

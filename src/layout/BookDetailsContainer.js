@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import BookDetails from '../components/BookDetails'
 import { useFetchBookData } from '../lib/useFetchBookData.js'
+import ReviewForm from '../components/ReviewForm'
 
 const BookDetailsContainer = ({ id }) => {
   const { data, loading, error, setId } = useFetchBookData()
@@ -11,11 +12,15 @@ const BookDetailsContainer = ({ id }) => {
   }, [id, setId])
 
   return (
-    <BookDetails
-      book={data}
-      loading={loading}
-      error={error}
-    />
+    <>
+      <BookDetails
+        book={data}
+        loading={loading}
+        error={error}
+      />
+
+      <ReviewForm />
+    </>
   )
 }
 

@@ -25,8 +25,12 @@ const BookDetails = ({ book, loading, error }) => {
         {book.description ? book.description : book.name}
       </p>
       <br />
+
       <h2 className="book-reviews__heading">Book reviews</h2>
-      <div className="book-reviews__container">
+      <div
+        data-testid="reviews-container"
+        className="book-reviews__container"
+      >
         {book.reviews && (
           <BookReviewsContainer reviews={book.reviews} />
         )}
