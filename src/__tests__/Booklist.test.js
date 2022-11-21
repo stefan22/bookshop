@@ -13,7 +13,7 @@ describe('Test environment', () => {
 })
 
 describe('Loading state', () => {
-  it('shows "loading..." when loading', () => {
+  it('renders "loading..." in pg when loading state true', () => {
     const props = {
       loading: true,
     }
@@ -21,7 +21,7 @@ describe('Loading state', () => {
     const content = container.querySelector('p')
     expect(content.innerHTML).toContain('Loading...')
   })
-  it('shows "Error:" with Network error', () => {
+  it('throws network "Error" when error equals to true', () => {
     const props = {
       error: true,
     }
@@ -32,7 +32,7 @@ describe('Loading state', () => {
 })
 
 describe('Renders books', () => {
-  it('shows books list', () => {
+  it('renders a book array correctly', () => {
     const props = {
       books: [
         { name: 'Homer', id: 1 },

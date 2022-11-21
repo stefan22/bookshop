@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Grid } from '@material-ui/core'
 import Booklist from '../components/Booklist.js'
 import { useFetchBookData } from '../lib/useFetchBookData.js'
 import SearchBox from '../components/SearchBox'
@@ -15,14 +14,8 @@ const BooklistContainer = () => {
   }, [term, searchUrl])
 
   return (
-    <Grid
-      container
-      spacing={2}
-    >
-      <Grid
-        item
-        xs={12}
-      >
+    <div className="container">
+      <section>
         <SearchBox
           setTerm={setTerm}
           term={term}
@@ -32,8 +25,8 @@ const BooklistContainer = () => {
           loading={loading}
           error={error}
         />
-      </Grid>
-    </Grid>
+      </section>
+    </div>
   )
 }
 

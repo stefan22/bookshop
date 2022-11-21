@@ -8,14 +8,14 @@ import userEvent from '@testing-library/user-event'
 import SearchBox from '../components/SearchBox'
 
 describe('Searchbox', () => {
-  it('renders input', () => {
+  it('shows book matching entered input text value', () => {
     const props = {
       term: '',
       setTerm: jest.fn(),
     }
     const { container } = render(<SearchBox {...props} />)
     const input = container.querySelector(
-      '[data-testid="search"] input'
+      '[data-testid="search"]'
     )
     userEvent.type(input, 'wars')
     expect(props.setTerm).toHaveBeenCalled()
