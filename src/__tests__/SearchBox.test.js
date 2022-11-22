@@ -14,9 +14,7 @@ describe('Searchbox', () => {
       setTerm: jest.fn(),
     }
     const { container } = render(<SearchBox {...props} />)
-    const input = container.querySelector(
-      '[data-testid="search"]'
-    )
+    const input = container.querySelector('[data-testid="search"]')
     userEvent.type(input, 'wars')
     expect(props.setTerm).toHaveBeenCalled()
     expect(props.setTerm).toBeCalledTimes(4)

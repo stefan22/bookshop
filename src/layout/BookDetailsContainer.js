@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Grid } from '@chakra-ui/react'
 import BookDetails from '../components/BookDetails'
 import { useFetchBookData } from '../lib/useFetchBookData.js'
 import ReviewForm from '../components/ReviewForm'
@@ -12,7 +13,7 @@ const BookDetailsContainer = ({ id }) => {
   }, [id, setId])
 
   return (
-    <>
+    <Grid templateRows="repeat(1, 1fr)">
       <BookDetails
         book={data}
         loading={loading}
@@ -20,7 +21,7 @@ const BookDetailsContainer = ({ id }) => {
       />
 
       <ReviewForm />
-    </>
+    </Grid>
   )
 }
 

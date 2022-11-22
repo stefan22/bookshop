@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Grid, GridItem } from '@chakra-ui/react'
 import Booklist from '../components/Booklist.js'
 import { useFetchBookData } from '../lib/useFetchBookData.js'
 import SearchBox from '../components/SearchBox'
@@ -14,19 +15,26 @@ const BooklistContainer = () => {
   }, [term, searchUrl])
 
   return (
-    <div className="container">
-      <section>
+    <Grid>
+      <GridItem>
         <SearchBox
           setTerm={setTerm}
           term={term}
         />
+      </GridItem>
+
+      <GridItem
+        mt="20"
+        width="100%"
+        minH="420px"
+      >
         <Booklist
           books={data}
           loading={loading}
           error={error}
         />
-      </section>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 

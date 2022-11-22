@@ -1,4 +1,13 @@
 import React from 'react'
+import {
+  Box,
+  Center,
+  Button,
+  Grid,
+  GridItem,
+  Text,
+  Flex,
+} from '@chakra-ui/react'
 
 const Booklist = ({ books, loading, error }) => {
   if (error) return <p>Error: {error}</p>
@@ -9,30 +18,76 @@ const Booklist = ({ books, loading, error }) => {
   if (loading) return <p>Loading...</p>
 
   return (
-    <div
+    <Center
+      w="100%"
+      align="center"
       data-testid="book-list"
       className="home-wrapper"
     >
-      <div className="container">
-        {books?.map(book => (
-          <div
-            key={book.id}
-            data-testid="book-item"
-            className="book-item"
-          >
-            <section className="card">
-              <div>
-                <h2 className="title">{book.name}</h2>
+      <Flex
+        flexWrap="wrap"
+        display="flex"
+        justifyContent="center"
+        flexDirection={['column', 'row', 'row']}
+      >
+        <Grid
+          className="book-item--wrapper"
+          templateColumns="repeat(3,1fr)"
+          align="center"
+          gap="3"
+          bg="whiteAlpha.100"
+        >
+          {books?.map(book => (
+            <GridItem
+              p="6"
+              key={book.id}
+              borderRadius="3"
+              data-testid="book-item"
+              className="book-item"
+            >
+              <Box
+                // w={['100%', '290px', '290px']}
+                py="6"
+                px="3"
+                bg="whiteAlpha.100"
+                border="3px double #727272"
+                borderRadius="4"
+                font="lg"
+              >
+                <Text
+                  fontSize="3xl"
+                  className="title"
+                >
+                  {book.name}
+                </Text>
 
-                <p className="description">{book.intro}</p>
-
-                <a href={`/books/${book.id}`}>View details</a>
-              </div>
-            </section>
-          </div>
-        ))}
-      </div>
-    </div>
+                <Center>
+                  <Text
+                    my="4"
+                    fontSize="1lg"
+                    className="description"
+                  >
+                    {book.intro}
+                  </Text>
+                </Center>
+                <Button
+                  _hover={{
+                    bg: 'black',
+                  }}
+                  py="6"
+                  px="2"
+                  colorScheme="white"
+                  fontWeight="semibold"
+                  bg="red.500"
+                >
+                  <a href={`/books/${book.id}`}>View details</a>
+                </Button>
+              </Box>
+            </GridItem>
+          ))}
+        </Grid>
+      </Flex>
+    </Center>
   )
 }
 
