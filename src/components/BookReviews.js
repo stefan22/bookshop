@@ -1,17 +1,33 @@
 import React from 'react'
+import { Box, Text } from '@chakra-ui/react'
 
 const BookReviews = ({ id, name, date, content }) => (
-  <div
+  <Box
+    py="2"
     key={id}
+    w="100%"
+    color="secondary"
+    bg="whiteAlpha.100"
     data-testid="review-item"
   >
-    <h3>{content}</h3>
-    <div className="reviews__footer">
+    <Text
+      fontSize="18"
+      color="red.500"
+    >
+      {content}
+    </Text>
+    <Box
+      borderBottom="1px dotted"
+      mb="18"
+      borderColor="gray.400"
+      fontSize="13"
+      className="reviews__footer"
+    >
       <span>Posted by: {name}</span>
       &nbsp; | &nbsp;
       <span> Date: {date}</span>
-    </div>
-  </div>
+    </Box>
+  </Box>
 )
 
 export default BookReviews
