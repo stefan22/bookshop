@@ -65,7 +65,7 @@ describe('Reviews', () => {
     }
     const { container } = render(<BookDetails {...props} />)
     const heading = container.querySelector(
-      'h2.book-reviews__heading'
+      'p.book-reviews__heading'
     ).innerHTML
     expect(heading).toContain('Book reviews')
   })
@@ -95,7 +95,7 @@ describe('Reviews', () => {
         {...props}
       />
     )
-    const reviewContentTitle = container.querySelector('h3').innerHTML
+    const reviewContentTitle = container.querySelector('p').innerHTML
     const reviewAuthor = container.querySelector(
       '[data-testid="review-item"] span'
     ).innerHTML
