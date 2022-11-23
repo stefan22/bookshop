@@ -1,34 +1,30 @@
 import {
-  removeBooks,
-  addBooks,
   gotoApp,
-} from '../../src/helpers/tests'
+  doBookList,
+  doBook,
+  getFirstBook,
+  doBookReview,
+  doSearch,
+} from '../helpers'
 
 describe('Bookshop', () => {
-  afterEach(() => {
-    removeBooks()
-  })
-
   beforeEach(() => {
-    addBooks()
+    gotoApp()
   })
 
-  it('Bookshop landing', () => {
-    gotoApp()
+  it('has heading "Bookshop"', () => {
     cy.get('[data-testid="heading"]').contains('Bookshop')
   })
 
-  it('shows a booklist', () => {
-    gotoApp()
+  it('shows booklist', () => {
     cy.wait(2000)
-    cy.get('[data-testid="book-list"]').should('exist')
-    cy.get('div.book-item').should('have.length', 3)
+    doBookList().should('exist')
+    doBook().should('have.length', 3)
   })
 
-  it('should have all 3 book titles', () => {
-    gotoApp()
+  it('shows three books initial state', () => {
     cy.wait(4000)
-    cy.get('div.book-item').should(books => {
+    doBook().should(books => {
       expect(books).to.have.length(3)
 
       const titles = [...books].map(
@@ -43,21 +39,29 @@ describe('Bookshop', () => {
   })
 })
 
-describe('Book details page', () => {
-  it('routes user to book details page', () => {
+describe('Book search by title', () => {
+  beforeEach(() => {
     gotoApp()
-    cy.get('[data-testid="book-item"]')
-      .contains('View details')
-      .eq(0)
-      .click()
-    cy.wait(4000)
+  })
+  it('filters results on real-time', () => {
+    doSearch().type('Wars')
+    doBook().should('have.length', 1)
+    doBook().eq(0).contains('The Streaming Wars')
+  })
+})
+
+describe('Book "View details" button', () => {
+  it('routes user to its book details page when clicked', () => {
+    getFirstBook()
     cy.url().should('include', '/books/1')
   })
 })
 
-describe('Searching by book name', () => {
-  gotoApp()
-  cy.get('[data-testid="search"]').type('Wars')
-  cy.get('[data-testid="book-item"]').should('have.length', 1)
-  cy.get('div.book-item').eq(0).contains('The Streaming Wars')
+describe('Book reviews below book details', () => {
+  it('shows that first book has 2 reviews at initialisation', () => {
+    doBookReview().should('have.length', 2)
+  })
+  it('shows first book title "It was alright"', () => {
+    doBookReview().eq(0).contains('It was alright')
+  })
 })
