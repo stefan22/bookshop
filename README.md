@@ -8,7 +8,7 @@ target="_blank">ESLint-config-slco</a>
 
 <br />
 
-##### Feature <kbd>1</kbd> - Booklist
+##### Feature <kbd>1</kbd> - Booklist √
 
 ```
  As a user I want to see a list of of books 
@@ -21,10 +21,10 @@ Acceptance criteria:
  Given there are 3 books in the library
  When a user visits the homepage
  Then he/she would see 3 books on the page
- And each book should contain at least book 'name' and 'id'
+ And each book should contain at least book 'name' and 'description intro'
 ```
 
-##### Feature <kbd>2</kbd> - Book details
+##### Feature <kbd>2</kbd> - Book details √
 
 ```
  As a user, I want to see the details of a book 
@@ -35,10 +35,10 @@ Acceptance criteria:
 
 ```
  User clicks an item in the booklist and is redirected to the details page
- The details page display the book name, and id
+ The details page display the book name, and book description
 ```
 
-##### Feature <kbd>3</kbd> - Searching
+##### Feature <kbd>3</kbd> - Searching √
 
 ```
  As a user, I want to search for a book by its name 
@@ -48,8 +48,8 @@ Acceptance criteria:
 Acceptance criteria:
 
 ```
- The user types 'homer' as a search word
- Only books with 'homer' in their name are displayed in the book list
+ The user types 'wars' as a search word
+ Only books with 'wars' in their name are displayed in the book list
 ```
 
 ##### Feature <kbd>4</kbd> - Reviews
@@ -62,7 +62,7 @@ Acceptance criteria:
 Acceptance criteria:
 
 ```
- A user can read reviews on the detail page
+ A user can read reviews on the detail page √
  A user can post a review to a particular book
  A user can edit the review he/she has posted
 ```
