@@ -11,8 +11,7 @@ import {
   Textarea,
   Grid,
   GridItem,
-  Text,
-  VStack,
+  Text, Box,
 } from '@chakra-ui/react'
 
 const ReviewForm = () => {
@@ -28,19 +27,18 @@ const ReviewForm = () => {
       w="100%"
       alignContent="center"
       mt="22"
-      templateRows="repeat(1,1fr)"
+      templateRows="repeat(1,5fr)"
     >
-      <GridItem mb="22">
+      <GridItem mb="30">
         <FormControl
           w="100%"
-          p="3"
-          border="1px solid"
+          justifyContent="center"
+          border={['', '', '1px solid lightgray']}
           bg="whiteAlpha.100"
-          borderColor="gray.200"
           borderRadius="3"
           maxW="410px"
           m="0 auto"
-          fontSize="14"
+          fontSize={['13', '14', '14']}
           className="review-form"
           noValidate
           autoComplete="off"
@@ -49,81 +47,92 @@ const ReviewForm = () => {
           alignItems="center"
           textAlign="center"
         >
-          <VStack spacing="24px">
-            <Text
-              fontSize="23"
-              color="red.500"
-              as="h2"
-              mt="3"
-            >
-              Submit a review
-            </Text>
+          <Text
+            fontSize="23"
+            color="red.500"
+            as="h2"
+            mt="7"
+          >
+            Submit a review
+          </Text>
 
-            <FormLabel
-              w="100%"
-              textAlign="left"
-            >
-              Your name:
+          <FormLabel
+            w="80%"
+            mt="5"
+            mb="0"
+            fontSize={['13', '14', '14']}
+            textAlign="left"
+          >
+            Your name:
+          </FormLabel>
+          <Input
+            fontSize={['13', '14', '14']}
+            w="84%"
+            borderColor="gray.200"
+            borderRadius="3"
+            placeholder="Enter name..."
+          />
+
+          <Box
+          w="84%"
+          >
+            <section>
+              <input
+                label="Name"
+                name="name"
+                value={name}
+                onChange={e => setName(e.target.value)}
+              />
+            </section>
+
+            <FormLabel fontSize={['13', '14', '14']}>
+              Your review:
             </FormLabel>
-            <Input
-              fontSize="14"
-              placeholder="Enter name..."
-            />
+            <section>
+              <Textarea
+                fontSize={['13', '14', '14']}
+                name="content"
+                label="Content"
+                rows="4"
+                value={content}
+                onChange={e => setContent(e.target.value)}
+                placeholder="Enter review"
+                size="sm"
+              />
+              <input
+                name="content"
+                label="Content"
+                rows="4"
+                value={content}
+                onChange={e => setContent(e.target.value)}
+              />
+            </section>
 
-            <div className="container">
-              <section>
-                <input
-                  label="Name"
-                  name="name"
-                  value={name}
-                  onChange={e => setName(e.target.value)}
-                />
-              </section>
-
-              <FormLabel>Your review:</FormLabel>
-              <section>
-                <Textarea
-                  fontSize="14"
-                  name="content"
-                  label="Content"
-                  rows="4"
-                  value={content}
-                  onChange={e => setContent(e.target.value)}
-                  placeholder="Enter review"
-                  size="sm"
-                />
-                <input
-                  name="content"
-                  label="Content"
-                  rows="4"
-                  value={content}
-                  onChange={e => setContent(e.target.value)}
-                />
-              </section>
-
-              <section>
-                <Button
-                  w="100%"
-                  display="flex"
-                  justifyContent="center"
-                  type="submit"
-                  name="submit"
-                  onClick={onSubmit}
-                  colorScheme="red"
-                >
-                  Submit
-                </Button>
-              </section>
-            </div>
-          </VStack>
+            <section>
+              <Button
+                mt="3"
+                w="100%"
+                fontSize={['14', '15', '16']}
+                display="flex"
+                justifyContent="center"
+                type="submit"
+                name="submit"
+                onClick={onSubmit}
+                colorScheme="red"
+              >
+                Submit
+              </Button>
+            </section>
+          </Box>
 
           <FormHelperText
-            mt="7"
-            px="5"
-            bg="blackAlpha.700"
-            color="whiteAlpha.800"
+            my="7"
+            p="2"
+            fontSize={['11', '12', '12']}
+            bg="blackAlpha.800"
+            color="whiteAlpha.900"
           >
-            Don't Be Like Musk.&nbsp; Please be nice!'
+            Don't Be Like Musk.&nbsp; Be kind'
           </FormHelperText>
 
           <FormErrorMessage>First name is invalid</FormErrorMessage>

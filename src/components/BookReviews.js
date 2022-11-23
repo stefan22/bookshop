@@ -6,19 +6,31 @@ const BookReviews = ({ id, name, date, content }) => (
     py="2"
     key={id}
     w="100%"
+    m="0 auto"
+    height="100%"
+    mb="0"
     color="secondary"
     bg="whiteAlpha.100"
     data-testid="review-item"
   >
     <Text
-      fontSize="18"
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      mb="1rem"
+      fontSize="17"
       color="red.500"
     >
       {content}
     </Text>
     <Box
+      display="flex"
+      flexWrap="wrap"
+      justifyContent="space-between"
+      margin="0 auto"
       borderBottom="1px dotted"
-      mb="18"
+      mb="3"
+      textAlign="center"
       borderColor="gray.400"
       fontSize="13"
       className="reviews__footer"

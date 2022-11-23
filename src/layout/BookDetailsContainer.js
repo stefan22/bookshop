@@ -13,7 +13,10 @@ const BookDetailsContainer = ({ id }) => {
   }, [id, setId])
 
   return (
-    <Grid templateRows="repeat(1, 1fr)">
+    <Grid
+      minH="100vh"
+      templateColumns="repeat(1, 3fr)"
+    >
       <BookDetails
         book={data}
         loading={loading}

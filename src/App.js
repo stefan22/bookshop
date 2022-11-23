@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Grid } from '@chakra-ui/react'
+import { Grid, Heading } from '@chakra-ui/react'
 import { NavLink, Routes, Route } from 'react-router-dom'
 import Books from './pages/Books'
 import Home from './pages/Home'
@@ -8,33 +8,33 @@ import './App.css'
 
 function App() {
   return (
-    <Grid
-      w="100%"
-      color="secondary"
-      data-testid="app-container"
-    >
-      <header>
-        <Text
+    <div id="root-app">
+      <Grid>
+        <Heading
+          width="100%"
           py="1"
+          fontSize={['27px', '30px', '32px']}
+          fontWeight="500"
+          bg="gray.600"
           color="gray.50"
           align="center"
           data-testid="heading"
         >
           <NavLink to="/">Bookshop (back)</NavLink>
-        </Text>
-      </header>
+        </Heading>
 
-      <Routes>
-        <Route
-          path="/"
-          element={<Home />}
-        />
-        <Route
-          path="/books/:id"
-          element={<Books />}
-        />
-      </Routes>
-    </Grid>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            path="/books/:id"
+            element={<Books />}
+          />
+        </Routes>
+      </Grid>
+    </div>
   )
 }
 

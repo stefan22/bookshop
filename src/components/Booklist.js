@@ -1,12 +1,13 @@
 import React from 'react'
 import {
-  Box,
-  Center,
+  Card,
+  CardHeader,
+  Heading,
+  CardBody,
+  CardFooter,
   Button,
-  Grid,
-  GridItem,
   Text,
-  Flex,
+  SimpleGrid,
 } from '@chakra-ui/react'
 
 const Booklist = ({ books, loading, error }) => {
@@ -18,76 +19,62 @@ const Booklist = ({ books, loading, error }) => {
   if (loading) return <p>Loading...</p>
 
   return (
-    <Center
-      w="100%"
-      align="center"
+    <SimpleGrid
+      spacing="4"
+      templateColumns="repeat(auto-fill,minmax(210px,1fr))"
       data-testid="book-list"
       className="home-wrapper"
     >
-      <Flex
-        flexWrap="wrap"
-        display="flex"
-        justifyContent="center"
-        flexDirection={['column', 'row', 'row']}
-      >
-        <Grid
-          className="book-item--wrapper"
-          templateColumns="repeat(3,1fr)"
+      {books?.map(book => (
+        <Card
           align="center"
-          gap="3"
-          bg="whiteAlpha.100"
+          p={['6', '6']}
+          key={book.id}
+          borderRadius="3"
+          data-testid="book-item"
+          className="book-item"
         >
-          {books?.map(book => (
-            <GridItem
-              p="6"
-              key={book.id}
-              borderRadius="3"
-              data-testid="book-item"
-              className="book-item"
+          <CardHeader>
+            <Heading
+              align="center"
+              fontWeight={['400', '500']}
+              fontSize={['22px', '20px', '18px']}
+              className="title"
             >
-              <Box
-                // w={['100%', '290px', '290px']}
-                py="6"
-                px="3"
-                bg="whiteAlpha.100"
-                border="3px double #727272"
-                borderRadius="4"
-                font="lg"
-              >
-                <Text
-                  fontSize="3xl"
-                  className="title"
-                >
-                  {book.name}
-                </Text>
+              {book.name}
+            </Heading>
+          </CardHeader>
+          <CardBody>
+            <Text
+              align="center"
+              px="5"
+              lineHeight="2"
+              fontSize={['15', '15', '15']}
+              className="description"
+            >
+              {book.intro}
+            </Text>
+          </CardBody>
 
-                <Center>
-                  <Text
-                    my="4"
-                    fontSize="1lg"
-                    className="description"
-                  >
-                    {book.intro}
-                  </Text>
-                </Center>
-                <Button
-                  _hover={{
-                    bg: 'black',
-                  }}
-                  py="6"
-                  px="2"
-                  colorScheme="white"
-                  fontWeight="semibold"
-                  bg="red.500"
-                >
-                  <a href={`/books/${book.id}`}>View details</a>
-                </Button>
-              </Box>
-            </GridItem>
-          ))}
-        </Grid>
-      </Flex>
-    </Center>
+          <CardFooter>
+            <Button
+              _hover={{
+                bg: 'black',
+              }}
+              px="10"
+              width="100%"
+              fontSize={['18', '16', '15']}
+              borderRadius="3"
+              colorScheme="white"
+              fontWeight="500"
+              bg="red.600"
+            >
+              <a href={`/books/${book.id}`}>View details</a>
+            </Button>
+          </CardFooter>
+        </Card>
+      ))}
+    </SimpleGrid>
   )
 }
 
