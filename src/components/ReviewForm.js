@@ -33,6 +33,7 @@ const ReviewForm = () => {
       <GridItem mb="30">
         <FormControl
           w="100%"
+          data-testid="books-review-form"
           justifyContent="center"
           border={['', '', '1px solid lightgray']}
           bg="whiteAlpha.100"
@@ -67,6 +68,7 @@ const ReviewForm = () => {
             Your name:
           </FormLabel>
           <Input
+            data-testid="books-review-form-input"
             fontSize={['13', '14', '14']}
             w="84%"
             borderColor="gray.200"
@@ -78,6 +80,7 @@ const ReviewForm = () => {
             <section>
               <input
                 label="Name"
+                data-testid="books-review-form-textarea"
                 name="name"
                 value={name}
                 onChange={e => setName(e.target.value)}
@@ -97,13 +100,6 @@ const ReviewForm = () => {
                 onChange={e => setContent(e.target.value)}
                 placeholder="Enter review"
                 size="sm"
-              />
-              <input
-                name="content"
-                label="Content"
-                rows="4"
-                value={content}
-                onChange={e => setContent(e.target.value)}
               />
             </section>
 
