@@ -11,7 +11,8 @@ import {
   Textarea,
   Grid,
   GridItem,
-  Text, Box,
+  Text,
+  Box,
 } from '@chakra-ui/react'
 
 const ReviewForm = () => {
@@ -73,9 +74,7 @@ const ReviewForm = () => {
             placeholder="Enter name..."
           />
 
-          <Box
-          w="84%"
-          >
+          <Box w="84%">
             <section>
               <input
                 label="Name"
