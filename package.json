@@ -18,7 +18,8 @@
     "react-router": "^6.4.3",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "react-test-renderer": "^18.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,7 +44,9 @@
       "jest/valid-expect": 0,
       "react/prop-types": 0,
       "cypress/no-unnecessary-waiting": 0,
-      "testing-library/await-async-utils": 0
+      "testing-library/await-async-utils": 0,
+      "no-unsafe-optional-chaining": 0,
+      "no-optional-chaining": 0
     }
   },
   "browserslist": {
@@ -79,8 +82,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.7.1",
-    "react-test-renderer": "^18.2.0"
+    "prettier": "^2.7.1"
   },
   "proxy": "http://localhost:8080"
 }

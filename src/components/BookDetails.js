@@ -1,17 +1,58 @@
-import React from 'react'
-import { Grid, GridItem, Text, VStack } from '@chakra-ui/react'
+import React, { useState, useEffect } from 'react'
+import {
+  Button,
+  Grid,
+  GridItem,
+  Text,
+  VStack,
+} from '@chakra-ui/react'
 import BookReviewsContainer from '../layout/BookReviewsContainer'
+import ReviewForm from './ReviewForm'
+import useForm from '../lib/useForm'
 
 const BookDetails = ({ book, loading, error }) => {
-  if (error) return <p>Error: {error}</p>
+  const [on, setOn] = useState(false)
+  const [reviews, setReviews] = useState([])
 
+  const { input, handleChange } = useForm({
+    name: '',
+    content: '',
+  })
+
+  const getAll = (bks, lst) => [
+    ...bks,
+    {
+      name: lst.name,
+      content: lst.content,
+      id: bks.length + lst.name,
+      date: new Date().toISOString().slice(0, 10),
+    },
+  ]
+
+  useEffect(() => {
+    const dobooks = async bk => bk?.reviews
+    const getReviews = async () => {
+      const revs = await dobooks(book)
+      // get w/last review included
+      if (input?.name.length > 0) {
+        const allReviews = await getAll(revs, input)
+        return setReviews(allReviews)
+      } // otherwise existing reviews
+      return setReviews(revs)
+    }
+    getReviews()
+
+    return () => getReviews
+  }, [input, book])
+
+  if (error) return <p>Error: {error}</p>
   if (loading) return <p>Loading...</p>
 
   return (
     <GridItem
-      height="100%"
-      overflow-y="scroll"
+      h="calc(100vh - 50px)"
       key={book.id}
+      visibility={`${!on ? 'visible' : 'hidden'}`}
       className="book-details"
       data-testid="book-details"
     >
@@ -66,16 +107,42 @@ const BookDetails = ({ book, loading, error }) => {
               display="flex"
               flexDirection="column"
               justifyContent="space-between"
-              p="10"
+              p={['5', '10']}
               w="100%"
               data-testid="reviews-container"
               className="book-reviews__container"
             >
-              {book.reviews && (
-                <BookReviewsContainer reviews={book.reviews} />
+              {reviews && (
+                <BookReviewsContainer
+                  reviews={reviews || book.reviews}
+                />
               )}
             </GridItem>
+            <GridItem>
+              <Button
+                size="small"
+                py="2"
+                px="5"
+                bg="gray.700"
+                colorScheme="white"
+                fontWeight="500"
+                fontSize={['13px', '14px']}
+                onClick={() => setOn(!on)}
+                type="button"
+              >
+                Add review
+              </Button>
+            </GridItem>
           </Grid>
+
+          {on && (
+            <ReviewForm
+              setOn={setOn}
+              on={on}
+              input={input}
+              handleChange={handleChange}
+            />
+          )}
         </GridItem>
       </VStack>
     </GridItem>

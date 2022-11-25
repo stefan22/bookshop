@@ -5,6 +5,7 @@ import {
   getFirstBook,
   doBookReview,
   doSearch,
+  fillOutReviewForm,
 } from '../helpers'
 
 describe('Bookshop', () => {
@@ -63,5 +64,19 @@ describe('Book reviews below book details', () => {
   })
   it('shows first book title "It was alright"', () => {
     doBookReview().eq(0).contains('It was alright')
+  })
+})
+
+describe('Review form', () => {
+  it('write a book review', () => {
+    const review = {
+      name: 'Reeks of Sarcasm',
+      desc: 'Only funny because not real',
+    }
+    fillOutReviewForm(review)
+    expect(cy.get('[data-testid="book-review__item"]').length).toBe(3)
+    expect(
+      cy.get('[data-testid="book-review__item"]').eq(0)
+    ).toContain('Reeks of Sarcasm')
   })
 })

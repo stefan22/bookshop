@@ -4,7 +4,7 @@ import BooklistContainer from '../layout/BooklistContainer'
 
 const Home = () => (
   <Grid
-    minH="100vh"
+    h="100%"
     px="2"
     templateColumns="repeat(1, 3fr)"
   >
