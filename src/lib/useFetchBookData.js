@@ -20,10 +20,10 @@ export const useFetchBookData = () => {
       }
       // all books or book details pg
       const isUrl =
-        id.indexOf('books') === 1
+        (await id.indexOf('books')) === 1
           ? `${BASE_URL}${id}`
           : `${BASE_URL}/books`
-
+      // helper fn
       handleBooks(isUrl, setData, setLoading, setError)
     }
     fetchBooks()

@@ -10,14 +10,11 @@ import BookReviewsContainer from '../layout/BookReviewsContainer'
 import ReviewForm from './ReviewForm'
 import useForm from '../lib/useForm'
 
-const BookDetails = ({ book, loading, error }) => {
+const BookDetails = ({ book, error }) => {
   const [on, setOn] = useState(false)
   const [reviews, setReviews] = useState([])
 
-  const { input, handleChange } = useForm({
-    name: '',
-    content: '',
-  })
+  const { input, loading, handleChange } = useForm()
 
   const getAll = (bks, lst) => [
     ...bks,
@@ -34,14 +31,13 @@ const BookDetails = ({ book, loading, error }) => {
     const getReviews = async () => {
       const revs = await dobooks(book)
       // get w/last review included
-      if (input?.name.length > 0) {
+      if (input?.name?.length > 0) {
         const allReviews = await getAll(revs, input)
         return setReviews(allReviews)
       } // otherwise existing reviews
       return setReviews(revs)
     }
     getReviews()
-
     return () => getReviews
   }, [input, book])
 

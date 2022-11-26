@@ -16,6 +16,8 @@ server.use((req, res, next) => {
   }
 })
 
+server.use(jsonServer.rewriter({}))
+
 server.use(middlewares)
 server.use(router)
 
