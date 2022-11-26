@@ -28,7 +28,7 @@ const Booklist = ({ books, loading, error }) => {
       {books?.map(book => (
         <Card
           align="center"
-          p={['6', '6']}
+          p={['3', '6']}
           key={book.id}
           borderRadius="3"
           data-testid="book-item"
@@ -38,7 +38,7 @@ const Booklist = ({ books, loading, error }) => {
             <Heading
               align="center"
               fontWeight={['400', '500']}
-              fontSize={['22px', '20px', '18px']}
+              fontSize={['22px', '22px', '24px']}
               className="title"
             >
               {book.name}
@@ -49,7 +49,7 @@ const Booklist = ({ books, loading, error }) => {
               align="center"
               px="5"
               lineHeight="2"
-              fontSize={['15', '15', '15']}
+              fontSize={['14', '14', '15']}
               className="description"
             >
               {book.intro}
@@ -61,9 +61,10 @@ const Booklist = ({ books, loading, error }) => {
               _hover={{
                 bg: 'black',
               }}
+              data-testid="add-review-book-item"
               px="10"
               width="100%"
-              fontSize={['18', '16', '15']}
+              fontSize={['14', '15', '15']}
               borderRadius="3"
               colorScheme="white"
               fontWeight="500"

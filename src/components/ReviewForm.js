@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   FormControl,
   FormLabel,
@@ -15,79 +15,83 @@ import {
   Box,
 } from '@chakra-ui/react'
 
-const ReviewForm = () => {
-  const [name, setName] = useState('')
-  const [content, setContent] = useState('')
-
-  const onSubmit = () => {
-    console.log('submit')
-  }
-
-  return (
-    <Grid
-      w="100%"
-      alignContent="center"
-      mt="22"
-      templateRows="repeat(1,5fr)"
-    >
-      <GridItem mb="30">
+const ReviewForm = ({
+  input,
+  resetForm,
+  handleChange,
+  setOn,
+  on,
+}) => (
+  <Grid
+    h="470px"
+    position="absolute"
+    w={['350px', '450px']}
+    left={['calc(50% - 175px)', 'calc(50% - 225px)']}
+    top={['calc(50% - 225px)', 'calc(50% - 275px)']}
+    visibility={`${on ? 'visible' : 'hidden'}`}
+    transition="all 0.75s ease-in 300ms"
+  >
+    <GridItem>
+      <form
+        onSubmit={async event => {
+          event.preventDefault()
+          setOn(false)
+          const res = await input
+          return res
+        }}
+      >
         <FormControl
-          w="100%"
+          display="flex"
+          h="100%"
+          flexDirection="column"
+          alignItems="center"
           data-testid="books-review-form"
-          justifyContent="center"
           border={['', '', '1px solid lightgray']}
-          bg="whiteAlpha.100"
           borderRadius="3"
-          maxW="410px"
-          m="0 auto"
           fontSize={['13', '14', '14']}
           className="review-form"
           noValidate
+          py="5"
           autoComplete="off"
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          textAlign="center"
         >
           <Text
             fontSize="23"
             color="red.500"
             as="h2"
-            mt="7"
+            my="6"
           >
             Submit a review
           </Text>
 
-          <FormLabel
-            w="80%"
-            mt="5"
-            mb="0"
-            fontSize={['13', '14', '14']}
-            textAlign="left"
-          >
-            Your name:
-          </FormLabel>
-          <Input
-            data-testid="books-review-form-input"
-            fontSize={['13', '14', '14']}
-            w="84%"
-            borderColor="gray.200"
-            borderRadius="3"
-            placeholder="Enter name..."
-          />
-
           <Box w="84%">
+            <FormLabel
+              mt="5"
+              mb="0"
+              fontSize={['13', '14', '14']}
+              textAlign="left"
+            >
+              Your name:
+            </FormLabel>
             <section>
-              <input
+              <Input
                 label="Name"
-                data-testid="books-review-form-textarea"
+                data-testid="books-review-form-input"
                 name="name"
-                value={name}
-                onChange={e => setName(e.target.value)}
+                value={input?.name}
+                onChange={handleChange}
+                fontSize={['13', '14', '14']}
+                borderColor="gray.200"
+                borderRadius="3"
+                placeholder="Enter name..."
               />
             </section>
+          </Box>
 
-            <FormLabel fontSize={['13', '14', '14']}>
+          <Box w="84%">
+            <FormLabel
+              mt="5"
+              fontSize={['13', '14', '14']}
+            >
               Your review:
             </FormLabel>
             <section>
@@ -95,9 +99,10 @@ const ReviewForm = () => {
                 fontSize={['13', '14', '14']}
                 name="content"
                 label="Content"
+                data-testid="books-review-form-textarea"
                 rows="4"
-                value={content}
-                onChange={e => setContent(e.target.value)}
+                value={input?.content}
+                onChange={handleChange}
                 placeholder="Enter review"
                 size="sm"
               />
@@ -105,15 +110,19 @@ const ReviewForm = () => {
 
             <section>
               <Button
-                mt="3"
+                mt="7"
                 w="100%"
-                fontSize={['14', '15', '16']}
+                fontSize={['13', '14', '15']}
                 display="flex"
                 justifyContent="center"
                 type="submit"
                 name="submit"
-                onClick={onSubmit}
+                data-testid="books-review-form-submit"
                 colorScheme="red"
+                px="4"
+                py="2"
+                borderRadius="5"
+                size="large"
               >
                 Submit
               </Button>
@@ -121,20 +130,24 @@ const ReviewForm = () => {
           </Box>
 
           <FormHelperText
-            my="7"
+            mt="5"
             p="2"
-            fontSize={['11', '12', '12']}
-            bg="blackAlpha.800"
-            color="whiteAlpha.900"
+            px="22"
+            mb="1"
+            data-testid="belike-musk"
+            fontSize={['9', '9']}
+            fontWeight="500"
+            color="blackAlpha.900"
+            borderRadius="3"
           >
             Don't Be Like Musk.&nbsp; Be kind'
           </FormHelperText>
 
           <FormErrorMessage>First name is invalid</FormErrorMessage>
         </FormControl>
-      </GridItem>
-    </Grid>
-  )
-}
+      </form>
+    </GridItem>
+  </Grid>
+)
 
 export default ReviewForm

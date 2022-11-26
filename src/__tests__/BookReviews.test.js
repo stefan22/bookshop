@@ -115,8 +115,12 @@ describe('Reviews', () => {
     const txtarea = container.querySelector(
       '[data-testid="books-review-form-textarea"]'
     )
+    const musk = container.querySelector(
+      '[data-testid="belike-musk"]'
+    )
     expect(form).toBeInTheDocument()
     expect(input).toBeInTheDocument()
     expect(txtarea).toBeInTheDocument()
+    expect(musk).toBeInTheDocument()
   })
 })

@@ -11,9 +11,9 @@ function App() {
     <div id="root-app">
       <Grid>
         <Heading
-          width="100%"
+          w="100%"
           py="1"
-          fontSize={['27px', '30px', '32px']}
+          fontSize={['24px', '27px', '27px']}
           fontWeight="500"
           bg="gray.600"
           color="gray.50"

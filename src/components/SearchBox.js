@@ -10,7 +10,7 @@ const SearchBox = ({ term, setTerm }) => (
     margin="0 auto"
   >
     <Text
-      align={['center', 'center', 'center']}
+      align={['center', 'center']}
       fontSize={['22', '24']}
       htmlFor="search"
     >
