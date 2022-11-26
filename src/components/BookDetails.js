@@ -120,6 +120,7 @@ const BookDetails = ({ book, loading, error }) => {
             </GridItem>
             <GridItem>
               <Button
+                data-testid="add-review-book-item"
                 size="small"
                 py="2"
                 px="5"

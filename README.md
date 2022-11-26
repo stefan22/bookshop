@@ -52,7 +52,7 @@ Acceptance criteria:
  Only books with 'wars' in their name are displayed in the book list
 ```
 
-##### Feature <kbd>4</kbd> - Reviews
+##### Feature <kbd>4</kbd> - Reviews √
 
 ```
  As a user, I want to be able to add a review to a book I have read previously
@@ -62,9 +62,8 @@ Acceptance criteria:
 Acceptance criteria:
 
 ```
- A user can read reviews on the detail page √
- A user can post a review to a particular book
- A user can edit the review he/she has posted
+ A user can read reviews on the detail page 
+ A user can post a review to a particular book 
 ```
 
 <br />

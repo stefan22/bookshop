@@ -67,16 +67,23 @@ describe('Book reviews below book details', () => {
   })
 })
 
-describe('Review form', () => {
-  it('write a book review', () => {
+describe('Add Review with review form', () => {
+  beforeEach(() => {
     const review = {
       name: 'Reeks of Sarcasm',
       desc: 'Only funny because not real',
     }
     fillOutReviewForm(review)
-    expect(cy.get('[data-testid="book-review__item"]').length).toBe(3)
-    expect(
-      cy.get('[data-testid="book-review__item"]').eq(0)
-    ).toContain('Reeks of Sarcasm')
+    cy.wait(4000)
+  })
+
+  it('shows a new review total for book', () => {
+    cy.get('[data-testid="review-item"]').should('have.length', 3)
+  })
+
+  it('renders new review title upon submit inside book reviews', () => {
+    cy.get('[data-testid="review-item"] p')
+      .eq(2)
+      .should('have.text', 'Only funny because not real')
   })
 })

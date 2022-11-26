@@ -61,6 +61,7 @@ const Booklist = ({ books, loading, error }) => {
               _hover={{
                 bg: 'black',
               }}
+              data-testid="add-review-book-item"
               px="10"
               width="100%"
               fontSize={['14', '15', '15']}

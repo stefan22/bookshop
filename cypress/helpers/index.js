@@ -42,8 +42,8 @@ export const doBookReview = () => {
 
 export const fillOutReviewForm = ({ name, desc }) => {
   getFirstBook()
+  cy.get('[data-testid="add-review-book-item"]').click()
   cy.get('[data-testid="books-review-form-input"]').type(name)
   cy.get('[data-testid="books-review-form-textarea"]').type(desc)
-  cy.wait(2000)
   return cy.get('[data-testid="books-review-form-submit"]').click()
 }
