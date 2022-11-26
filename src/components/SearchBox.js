@@ -6,7 +6,7 @@ const SearchBox = ({ term, setTerm }) => {
   const eventIntercept = event => {
     const value = clone(event.target.value)
     if (!isEmpty(value.trim())) {
-      return setTerm(event)
+      return setTerm(value)
     }
   }
 

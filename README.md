@@ -73,6 +73,9 @@ Acceptance criteria:
 
 ## _About project_
 
+Developing features above w/TDD
+
+
 <br />
 
 ##### Running _app_

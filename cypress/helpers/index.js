@@ -17,33 +17,41 @@ export const addBooks = () =>
 
 export const gotoApp = () => cy.visit('http://localhost:3000')
 
+// book ele dom node wrapper
 export const doBookList = () => cy.get('[data-testid="book-list"]')
-
+// input searchbox
 export const doSearch = () => cy.get('[data-testid="search"]')
+// returns book ele
+export const doBookEle = () => cy.get('[data-testid="book-item"]')
 
-export const doBook = () => cy.get('[data-testid="book-item"]')
-
-export const getFirstBook = () => {
+/*
+ * @fn getBookByIndex
+ * @params: book index
+ * @return: Book details page
+ * */
+export const getBookByIndex = (index = 0) => {
   gotoApp()
-  cy.wait(2000)
-  return cy
-    .get('[data-testid="book-item"]')
-    .eq(0)
+  cy.wait(3000)
+  cy.get('[data-testid="book-item"]')
+    .eq(Number(index))
     .contains('View details')
     .click()
 }
 
-export const doBookReview = () => {
+export const doBookReview = (index = 0) => {
   gotoApp()
-  getFirstBook()
-  cy.wait(2000)
+  cy.wait(1000)
+  getBookByIndex(index)
+  cy.wait(1000)
   return cy.get('[data-testid="review-item"]')
 }
 
-export const fillOutReviewForm = ({ name, desc }) => {
-  getFirstBook()
+export const fillOutReviewForm = ({ name, desc }, index = 0) => {
+  getBookByIndex(index)
+  cy.wait(1000)
   cy.get('[data-testid="add-review-book-item"]').click()
   cy.get('[data-testid="books-review-form-input"]').type(name)
   cy.get('[data-testid="books-review-form-textarea"]').type(desc)
-  return cy.get('[data-testid="books-review-form-submit"]').click()
+  cy.wait(1000)
+  cy.get('[data-testid="books-review-form-submit"]').click()
 }
