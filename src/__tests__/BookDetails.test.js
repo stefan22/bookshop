@@ -5,7 +5,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import BookDetails from '../components/BookDetails'
 
-describe('Book details pg', () => {
+describe('Book details', () => {
   it('shows the correct book name', () => {
     const props = {
       book: {

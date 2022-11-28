@@ -1,0 +1,74 @@
+export const books = [
+  {
+    name: 'The Streaming Wars',
+    description:
+      "Cartman locks horns with his mum in a battle of wills while an epic conflict unfolds and threatens South Park's very existence. Amidst the streaming wars, the drought in South Park has significantly worsened. In court, Eric Cartman sues his mother Liane, forcing Stan Marsh, Butters Stotch and Kyle Broflovski to testify about how Cartman used the money they earned to pay for his breast implants; the case is ultimately dismissed. ",
+    intro: 'Cartman locks horns with ...',
+    author: 'Eric Cartman',
+    id: 1,
+    reviews: [
+      {
+        name: 'Mike',
+        date: '2022/07/30',
+        content: 'It was alright',
+        id: 'e0730wars',
+      },
+      {
+        name: 'Sarah',
+        date: '2022/07/02',
+        content: 'I liked it',
+        id: 'h0702wars',
+      },
+    ],
+  },
+  {
+    name: "Token's Life Matters",
+    description:
+      "Cartman tricks Token into moving close enough to shoot in accordance with the 'stand-your-ground-law'. At school, Cartman is sent to Mackey's office along with a bandaged Token. When Mackey demands that the two apologize to each other in order to resolve their feud. Once more, Cartman panics, flees, and causes yet another plane to crash.",
+    intro: 'Eric Cartman draws attention ...',
+    author: 'Kenny McCormick',
+    id: 2,
+    reviews: [
+      {
+        name: 'Antony',
+        date: '2022/07/19',
+        content: 'Awesome book',
+        id: 'y0719matters',
+      },
+      {
+        name: 'Jessica',
+        date: '2022/02/11',
+        content: 'Simply amazing',
+        id: 'a0211matters',
+      },
+      {
+        name: 'Rob',
+        date: '2022/04/25',
+        content: 'A must read!',
+        id: 'b0425matters',
+      },
+    ],
+  },
+  {
+    name: "Shelley's Secret Baby",
+    description:
+      "South Park citizens declare a Conjoined Twin Myslexia Awareness Week to help the school nurse. The school's dodgeball team goes to the championships with Pip as their star player.",
+    intro: 'South Park citizens declare ...',
+    author: 'Shelley Marsh',
+    id: 3,
+    reviews: [
+      {
+        name: 'Mario',
+        date: '2022/07/18',
+        content: 'Not convinced',
+        id: 'o0718baby',
+      },
+      {
+        name: 'Vanessa',
+        date: '2022/07/12',
+        content: 'A bit too long',
+        id: 'a0712baby',
+      },
+    ],
+  },
+]
