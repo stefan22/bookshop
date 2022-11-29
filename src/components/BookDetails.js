@@ -27,15 +27,15 @@ const BookDetails = ({ book, error }) => {
   ]
 
   useEffect(() => {
-    const dobooks = async bk => bk?.reviews
+    const dobooks = bk => bk?.reviews
     const getReviews = async () => {
-      const revs = await dobooks(book)
+      const revs = dobooks(book)
       // get w/last review included
       if (input?.name?.length > 0) {
         const allReviews = await getAll(revs, input)
         return setReviews(allReviews)
       } // otherwise existing reviews
-      return setReviews(revs)
+      await setReviews(revs)
     }
     getReviews()
     return () => getReviews

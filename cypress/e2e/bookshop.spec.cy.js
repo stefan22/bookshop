@@ -14,16 +14,16 @@ describe('Bookshop', () => {
     cy.wait(2000)
   })
 
-  it('renders  heading "Bookshop"', () => {
+  it('renders  heading correctly', () => {
     cy.get('[data-testid="heading"]').contains('Bookshop')
   })
 
-  it('fetches booklist', () => {
+  it('shows a booklist', () => {
     doBookList().should('exist')
     doBookEle().should('have.length', 3)
   })
 
-  it('shows all 3 titles from db.json', () => {
+  it('renders all 3 book titles from db', () => {
     doBookEle().should(books => {
       expect(books).to.have.length(3)
 
@@ -48,11 +48,11 @@ describe('Book search by title', () => {
     doSearch().type('Wars')
     doBookEle().should('have.length', 1)
   })
-  it('Matches "Wars" with "Streaming Wars" book', () => {
+  it('Typing "Wars" returns"Streaming Wars" book', () => {
     doSearch().type('Wars')
     doBookEle().eq(0).contains('The Streaming Wars')
   })
-  it('Matches "token" with "Tokens life Matters" book', () => {
+  it('Typing "token" returns "Tokens life Matters" book', () => {
     doSearch().type('token')
     doBookEle().contains("Token's Life Matters")
   })
@@ -71,14 +71,14 @@ describe('Book "View details" btn clicked', () => {
         'The Streaming Wars'
       )
     })
-    it('has class "book-description"', () => {
+    it('shows books class in the page', () => {
       getBookByIndex(0)
       cy.get('[data-testid="book-description"]').should(
         'have.class',
         'book-description'
       )
     })
-    it('has "Book reviews" heading below book description', () => {
+    it('renders book-reviews heading under book description', () => {
       getBookByIndex(0)
       cy.get('p.book-reviews__heading').should(
         'have.text',
@@ -91,7 +91,7 @@ describe('Book "View details" btn clicked', () => {
     it('shows book has 2 reviews', () => {
       doBookReview().should('have.length', 2)
     })
-    it('renders first book-review title:"It was alright"', () => {
+    it('First book-review title:"It was alright"', () => {
       doBookReview().eq(0).contains('It was alright')
     })
   })
@@ -107,14 +107,14 @@ describe('Adding book-reviews', () => {
     cy.wait(2000)
   })
 
-  it('increases number of book-reviews by 1', () => {
+  it('adds the new book-review to book-reviews container', () => {
     cy.get('[data-testid="review-item"]').should('have.length', 3)
     cy.get('[data-testid="review-item"]').should(async books => {
       expect(books).to.have.length(3)
     })
   })
 
-  it('renders new review title correctly', () => {
+  it('renders new book-review title correctly', () => {
     cy.get('[data-testid="review-item"] p')
       .eq(2)
       .should('have.text', 'Only funny because not real')
