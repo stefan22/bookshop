@@ -16,7 +16,7 @@ const BookDetails = ({ book, error }) => {
 
   const { input, loading, handleChange } = useForm()
 
-  const getAll = (bks, lst) => [
+  const getAll = async (bks, lst) => [
     ...bks,
     {
       name: lst.name,
@@ -35,7 +35,7 @@ const BookDetails = ({ book, error }) => {
         const allReviews = await getAll(revs, input)
         return setReviews(allReviews)
       } // otherwise existing reviews
-      await setReviews(revs)
+      setReviews(revs)
     }
     getReviews()
     return () => getReviews
