@@ -34,7 +34,7 @@ const ReviewForm = ({ input, handleChange, setOn, on }) => {
     >
       <GridItem>
         <form
-          onSubmit={async event => {
+          onSubmit={event => {
             event.preventDefault()
             setOn(false)
             return input
@@ -117,7 +117,7 @@ const ReviewForm = ({ input, handleChange, setOn, on }) => {
                   justifyContent="center"
                   type="submit"
                   name="submit"
-                  data-testid="books-review-for-submit"
+                  data-testid="books-review-form-submit"
                   colorScheme="red"
                   px="4"
                   py="2"
