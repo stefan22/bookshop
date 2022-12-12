@@ -1,0 +1,50 @@
+name: main
+
+on:
+  push:
+    [ main ]
+  pull_request:
+    branches: [ main ]
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  build:
+    name: Build
+
+    strategy:
+      matrix:
+        runs-on: ubuntu-latest
+        node-version: [16.x, 18x]
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      fail-fast: false
+
+      runs-on: ${{ matrix.runs-on }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: NPM install
+        run: npm install
+
+      - name: Compile
+        run: npm run build
+
+      - name: Jest tests
+        run: npm test
+        env: ${{ matrix.env }}
+
+      - name: Cypress test
+        run: npm run cypress:run
+        env: ${{ matrix.env }}
+
+      - name: Lint
+        run: npm run lint:fix
