@@ -1,8 +1,9 @@
 /*
  * @jest-environment jsdom
  */
+
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 import BookReviewsContainer from '../layout/BookReviewsContainer'
 import BookDetails from '../components/BookDetails'
 import ReviewForm from '../components/ReviewForm'
@@ -45,7 +46,7 @@ describe('Reviews', () => {
     expect(reviews.length).toBe(1)
   })
 
-  it('renders heading of "Book reviews" below book details', () => {
+  it('renders heading of "Book reviews" below book details', async () => {
     const props = {
       book: {
         name: 'The Streaming Wars',
@@ -67,7 +68,10 @@ describe('Reviews', () => {
     const heading = container.querySelector(
       'p.book-reviews__heading'
     ).innerHTML
-    expect(heading).toContain('Book reviews')
+
+    await waitFor(() => {
+      expect(heading).toContain('Book reviews')
+    })
   })
 
   it('renders reviewer props (review and poster) in details page', () => {
