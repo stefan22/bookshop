@@ -19,16 +19,4 @@ describe('Searchbox', () => {
     expect(props.setTerm).toHaveBeenCalled()
     expect(props.setTerm).toBeCalledTimes(4)
   })
-
-  it('trims empty strings', () => {
-    const props = {
-      term: '',
-      setTerm: jest.fn(),
-    }
-
-    const { container } = render(<SearchBox {...props} />)
-    const input = container.querySelector('input[type="text"]')
-    userEvent.type(input, ' ')
-    expect(props.setTerm).not.toHaveBeenCalled()
-  })
 })
