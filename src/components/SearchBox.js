@@ -1,13 +1,11 @@
 import React from 'react'
-import { isEmpty, clone } from 'lodash'
+import { clone } from 'lodash'
 import { Box, Input, Text } from '@chakra-ui/react'
 
 const SearchBox = ({ term, setTerm }) => {
   const eventIntercept = event => {
     const value = clone(event.target.value)
-    if (!isEmpty(value.trim())) {
-      return setTerm(value)
-    }
+    setTerm(value)
   }
 
   return (
