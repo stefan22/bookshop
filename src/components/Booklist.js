@@ -9,8 +9,10 @@ import {
   Text,
   SimpleGrid,
 } from '@chakra-ui/react'
+import { useTheme } from '../lib/useTheme'
 
 const Booklist = ({ books, loading, error }) => {
+  const theme = useTheme()
   if (error) return <p>Error: {error}</p>
 
   if (!loading && books.length === 0) {
@@ -58,17 +60,17 @@ const Booklist = ({ books, loading, error }) => {
 
           <CardFooter>
             <Button
-              _hover={{
-                bg: 'black',
-              }}
               data-testid="add-review-book-item"
               px="10"
               width="100%"
               fontSize={['14', '15', '15']}
               borderRadius="3"
-              colorScheme="white"
-              fontWeight="500"
-              bg="red.600"
+              fontWeight="600"
+              color={theme.colors.white}
+              bg={theme.colors.red}
+              _hover={{
+                background: theme.colors.blue,
+              }}
             >
               <a href={`/books/${book.id}`}>View details</a>
             </Button>

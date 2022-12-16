@@ -1,12 +1,14 @@
 import React from 'react'
 import { Grid, Heading } from '@chakra-ui/react'
 import { NavLink, Routes, Route } from 'react-router-dom'
-import Books from './pages/Books'
 import Home from './pages/Home'
+import { useTheme } from './lib/useTheme'
 
-import './App.css'
+const LazyBooks = React.lazy(() => import('./pages/Books'))
 
 function App() {
+  const theme = useTheme()
+  console.log(theme)
   return (
     <div id="root-app">
       <Grid>
@@ -15,8 +17,8 @@ function App() {
           py="1"
           fontSize={['24px', '27px', '27px']}
           fontWeight="500"
-          bg="gray.600"
-          color="gray.50"
+          bg={theme?.colors.blue}
+          color={theme?.colors.white}
           align="center"
           data-testid="heading"
         >
@@ -30,7 +32,7 @@ function App() {
           />
           <Route
             path="/books/:id"
-            element={<Books />}
+            element={<LazyBooks />}
           />
         </Routes>
       </Grid>

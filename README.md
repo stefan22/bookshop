@@ -80,6 +80,14 @@ com/package/eslint-config-slco" title="ESLint-config-slco"
  
  
  <br />
+
+##### Before run:
+
+At `src/helpers/baseUrl.js` change **URL** to
+
+```
+ export const BASE_URL = 'http://localhost:8080'
+```
  
  ##### Running _app_
  
@@ -125,4 +133,3 @@ com/package/eslint-config-slco" title="ESLint-config-slco"
  
  
  :100:
- 

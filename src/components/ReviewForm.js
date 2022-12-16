@@ -14,8 +14,10 @@ import {
   Text,
   Box,
 } from '@chakra-ui/react'
+import { useTheme } from '../lib/useTheme'
 
 const ReviewForm = ({ input, handleChange, setOn, on }) => {
+  const theme = useTheme()
   const handleReset = () =>
     setTimeout(() => {
       input.name = ''
@@ -44,6 +46,7 @@ const ReviewForm = ({ input, handleChange, setOn, on }) => {
             display="flex"
             h="100%"
             flexDirection="column"
+            boxShadow="md"
             alignItems="center"
             data-testid="books-review-form"
             border={['', '', '1px solid lightgray']}
@@ -80,7 +83,7 @@ const ReviewForm = ({ input, handleChange, setOn, on }) => {
                   value={input?.name}
                   onChange={handleChange}
                   fontSize={['13', '14', '14']}
-                  borderColor="gray.200"
+                  borderColor={theme.colors.gray}
                   borderRadius="3"
                   placeholder="Enter name..."
                 />
@@ -118,11 +121,13 @@ const ReviewForm = ({ input, handleChange, setOn, on }) => {
                   type="submit"
                   name="submit"
                   data-testid="books-review-form-submit"
-                  colorScheme="red"
+                  bg={theme.colors.red}
+                  color={theme.colors.white}
                   px="4"
                   py="2"
                   borderRadius="5"
                   size="large"
+                  _hover={{ background: theme.colors.blue }}
                   onClick={handleReset}
                 >
                   Submit
@@ -138,7 +143,7 @@ const ReviewForm = ({ input, handleChange, setOn, on }) => {
               data-testid="belike-musk"
               fontSize={['9', '9']}
               fontWeight="500"
-              color="blackAlpha.900"
+              color={theme.colors.primary}
               borderRadius="3"
             >
               Don't Be Like Musk.&nbsp; Be kind'
