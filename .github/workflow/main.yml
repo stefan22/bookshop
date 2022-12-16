@@ -9,31 +9,29 @@ on:
       - main
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node: 18.x
     name: Node ${{ matrix.node }}
+    
     steps:
-      - uses: actions/checkout@v3
+    
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        run: node stubServer/server.js
+      
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+          cache: 'npm'  
+      - name: Run
       - run: npm start
       - run: npm test
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm install
+     
       - name: Linting
         run: |
           npm run lint:fix
@@ -41,5 +39,6 @@ jobs:
         run: npm test
       - name: Cypress
         run: npm run cypress:run
-      - name: Build production
+      
+      - name: Build 
         run: npm run build
