@@ -37,7 +37,6 @@ const SearchBox = ({ term, setTerm }) => {
           type="text"
           w={['310px', '340px']}
           variant="outline"
-          color="secondary"
           placeholder="book name"
         />
       </Text>

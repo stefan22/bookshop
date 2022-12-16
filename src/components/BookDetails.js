@@ -6,11 +6,13 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
+import { useTheme } from '../lib/useTheme'
 import BookReviewsContainer from '../layout/BookReviewsContainer'
 import ReviewForm from './ReviewForm'
 import useForm from '../lib/useForm'
 
 const BookDetails = ({ book, error }) => {
+  const theme = useTheme()
   const [on, setOn] = useState(false)
   const [reviews, setReviews] = useState([])
 
@@ -57,7 +59,8 @@ const BookDetails = ({ book, error }) => {
           <Text
             mt="12"
             mb="3"
-            color="red.500"
+            fontWeight="600"
+            color={theme.colors.blue}
             fontSize={['24px', '24px', '26px']}
             data-testid="book-name"
             className="title"
@@ -70,7 +73,6 @@ const BookDetails = ({ book, error }) => {
             width="78%"
             margin="0 auto"
             fontSize={['14', '14', '15']}
-            color="secondary"
             textAlign={['justify', 'justify', 'left']}
             data-testid="book-description"
             className="book-description"
@@ -82,7 +84,8 @@ const BookDetails = ({ book, error }) => {
         <GridItem>
           <Text
             fontSize="22"
-            color="red.500"
+            fontWeight="600"
+            color={theme.colors.red}
             mt="12"
             mb="0"
             className="book-reviews__heading"
@@ -93,7 +96,7 @@ const BookDetails = ({ book, error }) => {
         <GridItem>
           <Grid
             align="center"
-            border={['', '1px solid lightgray']}
+            border={[`1px solid ${theme.colors.gray}`]}
             borderRadius="4"
             p="5"
             mb="10"
@@ -120,12 +123,15 @@ const BookDetails = ({ book, error }) => {
                 size="small"
                 py="2"
                 px="5"
-                bg="gray.700"
-                colorScheme="white"
-                fontWeight="500"
+                bg={theme.colors.red}
+                color={theme.colors.white}
+                fontWeight="600"
                 fontSize={['13px', '14px']}
                 onClick={() => setOn(!on)}
                 type="button"
+                _hover={{
+                  background: theme.colors.blue,
+                }}
               >
                 Add review
               </Button>
